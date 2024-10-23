@@ -21,6 +21,6 @@ WIP: tools automatic download (Homebrew and WSL)
 
 To set up wezterminal on wsl, run this:
 
-	```bash
-	make wezterm-wsl
-	```
+```bash
+make wezterm-wsl
+```
