@@ -9,6 +9,7 @@ alias vim=nvim
 # git aliases
 alias gst="git status"
 alias gc="git commit"
+alias ga="git add"
 alias gaa="git add -A"
 alias gd="git diff"
 alias gdc="git diff —cached"
