@@ -35,10 +35,16 @@
 	defaultBranch = main
 
 [credential "https://github.com"]
-	helper = !/opt/homebrew/bin/gh auth git-credential
+# MacOS
+	# helper = !/opt/homebrew/bin/gh auth git-credential
+# Windows
+	helper = !/usr/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
-	helper = !/opt/homebrew/bin/gh auth git-credential
+# MacOS
+	# helper = !/opt/homebrew/bin/gh auth git-credential
+# Windows
+	helper = !/usr/bin/gh auth git-credential
 
 [alias]
 	l = "!. ~/.githelpers && pretty_git_log"
