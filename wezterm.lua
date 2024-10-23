@@ -134,5 +134,4 @@ else
 	}
 end
 
-
 return config
