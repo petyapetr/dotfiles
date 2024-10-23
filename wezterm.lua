@@ -23,114 +23,118 @@ config.hide_tab_bar_if_only_one_tab = false
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_domain = "WSL:Ubuntu"
+
+	config.keys = {
+		{
+			key = "t",
+			mods = "CTRL",
+			action = act.SpawnTab "CurrentPaneDomain"
+		},
+		{
+			key = "t",
+			mods = "CTRL|SHIFT",
+			action = act.SpawnCommandInNewTab { cwd = "~" }
+		},
+		{
+			key = ";",
+			mods = "CTRL",
+			action = act.SplitVertical { domain = "CurrentPaneDomain" }
+		},
+		{
+			key = "'",
+			mods = "CTRL",
+			action = act.SplitHorizontal { domain = "CurrentPaneDomain" }
+		},
+		{
+			key = "w",
+			mods = "CTRL",
+			action = act.CloseCurrentPane { confirm = false }
+		},
+		{
+			key = "j",
+			mods = "CTRL",
+			action = act.ActivateTabRelative(-1)
+		},
+		{
+			key = "l",
+			mods = "CTRL",
+			action = act.ActivateTabRelative(1)
+		},
+		{
+			key = "i",
+			mods = "CTRL|SHIFT",
+			action = act.ActivatePaneDirection "Up"
+		},
+		{
+			key = "k",
+			mods = "CTRL|SHIFT",
+			action = act.ActivatePaneDirection "Down"
+		},
+		{
+			key = "j",
+			mods = "CTRL|SHIFT",
+			action = act.ActivatePaneDirection "Left"
+		},
+		{
+			key = "l",
+			mods = "CTRL|SHIFT",
+			action = act.ActivatePaneDirection "Right"
+		},
+	}
+else
+	config.keys = {
+		{
+			key = "t",
+			mods = "CMD|SHIFT",
+			action = act.SpawnCommandInNewTab { cwd = "~" }
+		},
+		{
+			key = ";",
+			mods = "CMD",
+			action = act.SplitVertical { domain = "CurrentPaneDomain" }
+		},
+		{
+			key = "'",
+			mods = "CMD",
+			action = act.SplitHorizontal { domain = "CurrentPaneDomain" }
+		},
+		{
+			key = "w",
+			mods = "CMD",
+			action = act.CloseCurrentPane { confirm = false }
+		},
+		{
+			key = "j",
+			mods = "CMD",
+			action = act.ActivateTabRelative(-1)
+		},
+		{
+			key = "l",
+			mods = "CMD",
+			action = act.ActivateTabRelative(1)
+		},
+		{
+			key = "i",
+			mods = "CMD|SHIFT",
+			action = act.ActivatePaneDirection "Up"
+		},
+		{
+			key = "k",
+			mods = "CMD|SHIFT",
+			action = act.ActivatePaneDirection "Down"
+		},
+		{
+			key = "j",
+			mods = "CMD|SHIFT",
+			action = act.ActivatePaneDirection "Left"
+		},
+		{
+			key = "l",
+			mods = "CMD|SHIFT",
+			action = act.ActivatePaneDirection "Right"
+		},
+	}
 end
 
-config.keys = {
-	{
-		key = "t",
-		mods = "CTRL",
-		action = act.SpawnTab "CurrentPaneDomain"
-	},
-	{
-		key = "t",
-		mods = "CMD|SHIFT",
-		action = act.SpawnCommandInNewTab { cwd = "~" }
-	},
-	{
-		key = "t",
-		mods = "CTRL|SHIFT",
-		action = act.SpawnCommandInNewTab { cwd = "~" }
-	},
-	{
-		key = ";",
-		mods = "CMD",
-		action = act.SplitVertical { domain = "CurrentPaneDomain" }
-	},
-	{
-		key = ";",
-		mods = "CTRL",
-		action = act.SplitVertical { domain = "CurrentPaneDomain" }
-	},
-	{
-		key = "'",
-		mods = "CMD",
-		action = act.SplitHorizontal { domain = "CurrentPaneDomain" }
-	},
-	{
-		key = "'",
-		mods = "CTRL",
-		action = act.SplitHorizontal { domain = "CurrentPaneDomain" }
-	},
-	{
-		key = "w",
-		mods = "CMD",
-		action = act.CloseCurrentPane { confirm = false }
-	},
-	{
-		key = "w",
-		mods = "CTRL",
-		action = act.CloseCurrentPane { confirm = false }
-	},
-	{
-		key = "j",
-		mods = "CMD",
-		action = act.ActivateTabRelative(-1)
-	},
-	{
-		key = "j",
-		mods = "CTRL",
-		action = act.ActivateTabRelative(-1)
-	},
-	{
-		key = "l",
-		mods = "CMD",
-		action = act.ActivateTabRelative(1)
-	},
-	{
-		key = "l",
-		mods = "CTRL",
-		action = act.ActivateTabRelative(1)
-	},
-	{
-		key = "i",
-		mods = "CMD|SHIFT",
-		action = act.ActivatePaneDirection "Up"
-	},
-	{
-		key = "i",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection "Up"
-	},
-	{
-		key = "k",
-		mods = "CMD|SHIFT",
-		action = act.ActivatePaneDirection "Down"
-	},
-	{
-		key = "k",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection "Down"
-	},
-	{
-		key = "j",
-		mods = "CMD|SHIFT",
-		action = act.ActivatePaneDirection "Left"
-	},
-	{
-		key = "j",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection "Left"
-	},
-	{
-		key = "l",
-		mods = "CMD|SHIFT",
-		action = act.ActivatePaneDirection "Right"
-	},
-	{
-		key = "l",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection "Right"
-	},
-}
 
 return config
