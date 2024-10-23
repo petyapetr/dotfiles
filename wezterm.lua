@@ -21,6 +21,10 @@ config.color_scheme = "Dracula (Official)"
 
 config.hide_tab_bar_if_only_one_tab = false
 
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_domain = "WSL:Ubuntu"
+end
+
 config.keys = {
 	{
 		key = "t",
