@@ -5,9 +5,9 @@
 # Uncomment the following line if you want to change your user credentials
 # for a subfolder on a personal machine
 # or on a company owned device
-# [includeIf "gitdir:~/Developer/WORK/<company-name>/"]
+# [includeIf "gitdir:~/Developer/WORK/<company>/"]
 # [includeIf "gitdir:~/Developer/"]
-	# path = ~/dotfiles/git/.gitconfig-<company-name>
+	# path = ~/dotfiles/git/.gitconfig-<company>
 
 [core]
 	editor = vim
