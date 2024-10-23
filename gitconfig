@@ -1,0 +1,47 @@
+[user]
+	name = Slava Zakharov
+	email = slava.zakharov@mailbox.org
+
+# Uncomment the following line if you want to change your user credentials
+# for a subfolder on a personal machine
+# or on a company owned device
+# [includeIf "gitdir:~/Developer/WORK/<company-name>/"]
+# [includeIf "gitdir:~/Developer/"]
+	# path = ~/dotfiles/git/.gitconfig-<company-name>
+
+[core]
+	editor = vim
+  excludesfile = ~/.gitignore
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+	ui = true
+
+[push]
+	default = current
+
+[remote]
+  pushDefault = origin
+
+[branch]
+	autosetuprebase = always
+
+[pull]
+	rebase = true
+
+[init]
+	defaultBranch = main
+
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[alias]
+	l = "!. ~/.githelpers && pretty_git_log"
+	la = "!git l --all"
+	lr = "!git l -20"
+
