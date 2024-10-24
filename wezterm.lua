@@ -10,7 +10,7 @@ config.font_size = 18
 config.window_decorations = "RESIZE"
 
 config.enable_tab_bar = true
-config.use_fancy_tab_bar = false
+-- config.use_fancy_tab_bar = false
 -- config.show_close_tab_button_in_tabs = true
 
 config.window_background_opacity = 0.95
