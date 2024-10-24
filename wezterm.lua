@@ -32,7 +32,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		{
 			key = "v",
 			mods = "CTRL",
-			action = act.pasteFrom "Clipboard"
+			action = act.PasteFrom "Clipboard"
 		},
 		{
 			key = "t",
@@ -56,12 +56,12 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		},
 		{
 			key = "j",
-			mods = "CTRL|SPACE",
+			mods = "CTRL|SHIFT|ALT",
 			action = act.ActivateTabRelative(-1)
 		},
 		{
 			key = "l",
-			mods = "CTRL|SPACE",
+			mods = "CTRL|SHIFT|ALT",
 			action = act.ActivateTabRelative(1)
 		},
 		{
@@ -139,5 +139,7 @@ else
 		},
 	}
 end
+
+config.default_domain = "WSL:Ubuntu"
 
 return config
