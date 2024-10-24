@@ -26,7 +26,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.keys = {
 		{
 			key = "c",
-			mods = "CTRL",
+			mods = "CTRL|SHIFT",
 			action = act.CopyTo "Clipboard"
 		},
 		{
