@@ -22,11 +22,17 @@ config.color_scheme = "Dracula (Official)"
 config.hide_tab_bar_if_only_one_tab = false
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.window_decorations = "RESIZE | TITLE"
 	config.keys = {
 		{
-			key = "t",
+			key = "c",
 			mods = "CTRL",
-			action = act.SpawnTab "CurrentPaneDomain"
+			action = act.CopyTo "Clipboard"
+		},
+		{
+			key = "v",
+			mods = "CTRL",
+			action = act.pasteFrom "Clipboard"
 		},
 		{
 			key = "t",
@@ -55,7 +61,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		},
 		{
 			key = "l",
-			mods = "CTRL",
+			mods = "CTRL|SPACE",
 			action = act.ActivateTabRelative(1)
 		},
 		{
