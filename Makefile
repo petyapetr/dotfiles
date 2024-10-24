@@ -9,8 +9,8 @@ zsh: $(HOME)/.zshrc
 wezterm: $(HOME)/.wezterm.lua
 
 wezterm-wsl:
-	sed -i '/return config/i config.default_domain = "WSL:Ubuntu"\
-	' wezterm.lua
-	cp -u wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
+	sed '/return config/i config.default_domain = "WSL:Ubuntu"\
+	' wezterm.lua > .wezterm.lua
+	mv .wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
 
 all: zsh git wezterm
