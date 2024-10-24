@@ -36,6 +36,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		},
 		{
 			key = "t",
+			mods = "CTRL",
+			action = act.SpawnTab "CurrentPaneDomain"
+		},
+		{
+			key = "t",
 			mods = "CTRL|SHIFT",
 			action = act.SpawnCommandInNewTab { cwd = "~" }
 		},
@@ -56,12 +61,12 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		},
 		{
 			key = "j",
-			mods = "CTRL|SHIFT|ALT",
+			mods = "ALT",
 			action = act.ActivateTabRelative(-1)
 		},
 		{
 			key = "l",
-			mods = "CTRL|SHIFT|ALT",
+			mods = "ALT",
 			action = act.ActivateTabRelative(1)
 		},
 		{
@@ -139,7 +144,5 @@ else
 		},
 	}
 end
-
-config.default_domain = "WSL:Ubuntu"
 
 return config
