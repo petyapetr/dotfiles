@@ -11,6 +11,7 @@ zsh: $(HOME)/.zshrc
 wezterm: $(HOME)/.wezterm.lua
 
 wezterm-wsl:
+	rm ~/.wezterm.lua
 	sed '/return config/i config.default_domain = "WSL:Ubuntu"\
 	' wezterm.lua > .wezterm.lua
 	mv .wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
