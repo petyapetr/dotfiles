@@ -3,8 +3,8 @@ alias cl=clear
 
 # cli utils
 alias pn=pnpm
-# alias cat=bat
-# alias vim=nvim
+alias cat=bat
+alias vim=nvim
 
 # git aliases
 alias gst="git status"
