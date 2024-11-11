@@ -3,8 +3,8 @@ alias cl=clear
 
 # cli utils
 alias pn=pnpm
-alias cat=bat
-alias vim=nvim
+# alias cat=bat
+# alias vim=nvim
 
 # git aliases
 alias gst="git status"
@@ -13,3 +13,5 @@ alias ga="git add"
 alias gaa="git add -A"
 alias gd="git diff"
 alias gdc="git diff --cached"
+alias gla="git la"
+alias glr="git lr"
