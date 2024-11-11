@@ -94,8 +94,13 @@ else
 	config.keys = {
 		{
 			key = "t",
-			mods = "CMD|SHIFT",
+			mods = "CMD",
 			action = act.SpawnCommandInNewTab { cwd = "~" }
+		},
+		{
+			key = "t",
+			mods = "CMD|SHIFT",
+			action = act.SpawnTab "CurrentPaneDomain"
 		},
 		{
 			key = ";",
