@@ -37,12 +37,12 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		{
 			key = "t",
 			mods = "CTRL",
-			action = act.SpawnTab "CurrentPaneDomain"
+			action = act.SpawnCommandInNewTab { cwd = "~" }
 		},
 		{
 			key = "t",
 			mods = "CTRL|SHIFT",
-			action = act.SpawnCommandInNewTab { cwd = "~" }
+			action = act.SpawnTab "CurrentPaneDomain"
 		},
 		{
 			key = ";",
