@@ -1,0 +1,7 @@
+{
+	"html": {
+		"snippets": {
+			"script:ts": "<script lang='ts'>\n\t${1}\n</script>"
+		}
+	}
+}
