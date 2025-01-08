@@ -3,7 +3,7 @@ alias cl=clear
 
 # cli utils
 alias pn=pnpm
-alias cat=bat
+alias cat="bat --plain"
 alias vim=nvim
 
 # git aliases
