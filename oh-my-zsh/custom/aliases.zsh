@@ -15,3 +15,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gla="git la"
 alias glr="git lr"
+
+# other
+alias pnx="pnpm dlx"
+
