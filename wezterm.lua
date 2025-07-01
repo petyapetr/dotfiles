@@ -37,7 +37,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		{
 			key = "t",
 			mods = "CTRL",
-			action = act.SpawnCommandInNewTab { cwd = "~" }
+			action = act.SpawnCommandInNewTab { domain = "~" }
 		},
 		{
 			key = "t",
@@ -95,7 +95,7 @@ else
 		{
 			key = "t",
 			mods = "CMD",
-			action = act.SpawnCommandInNewTab { cwd = "~" }
+			action = act.SpawnCommandInNewTab { domain = "~" }
 		},
 		{
 			key = "t",
