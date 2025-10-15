@@ -4,7 +4,6 @@ alias cl=clear
 # cli utils
 alias pn=pnpm
 alias cat="bat --plain"
-alias vim=nvim
 
 # git aliases
 alias gst="git status"
@@ -18,4 +17,5 @@ alias glr="git lr"
 
 # other
 alias pnx="pnpm dlx"
+alias whisper-cli="/Users/slava/Developer/PERSONAL/lib-source-code/whisper.cpp/build/bin/whisper-cli -m /Users/slava/Developer/PERSONAL/lib-source-code/whisper.cpp/models/ggml-base.en.bin"
 

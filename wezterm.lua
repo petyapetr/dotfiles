@@ -13,6 +13,12 @@ config.enable_tab_bar = true
 -- config.use_fancy_tab_bar = false
 -- config.show_close_tab_button_in_tabs = true
 
+wezterm.on("new-tab-button-click", function(window, pane)
+		window:perform_action(wezterm.action.SpawnCommandInNewTab({cwd = wezterm.home_dir}), pane)
+		return false
+	end
+)
+
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 2
 
@@ -20,6 +26,7 @@ config.color_scheme_dirs = {"~/dotfiles/wezterm/colors"}
 config.color_scheme = "Dracula (Official)"
 
 config.hide_tab_bar_if_only_one_tab = false
+config.window_close_confirmation = "NeverPrompt"
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.window_decorations = "RESIZE | TITLE"
@@ -37,7 +44,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		{
 			key = "t",
 			mods = "CTRL",
-			action = act.SpawnCommandInNewTab { domain = "~" }
+			action = act.SpawnCommandInNewTab { domain = "DefaultDomain" }
 		},
 		{
 			key = "t",
@@ -95,7 +102,7 @@ else
 		{
 			key = "t",
 			mods = "CMD",
-			action = act.SpawnCommandInNewTab { domain = "~" }
+			action = act.SpawnCommandInNewTab { domain = "DefaultDomain" }
 		},
 		{
 			key = "t",
