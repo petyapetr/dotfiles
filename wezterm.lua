@@ -15,8 +15,9 @@ local is_macos = target:find("darwin") ~= nil
 local primary_mod = is_macos and "CMD" or "CTRL"
 
 config.enable_tab_bar = true
--- config.use_fancy_tab_bar = false
--- config.show_close_tab_button_in_tabs = true
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
+config.audible_bell = "Disabled"
 
 wezterm.on("new-tab-button-click", function(window, pane)
 		window:perform_action(wezterm.action.SpawnCommandInNewTab({cwd = wezterm.home_dir}), pane)
@@ -40,47 +41,37 @@ end
 config.keys = {
 	{
 		key = "t",
-		mods = "CTRL|SHIFT",
-		action = act.DisableDefaultAssignment,
+		mods = "SUPER",
+		action = act.SpawnCommandInNewTab {domain = "DefaultDomain", cwd = "~"},
 	},
 	{
 		key = "t",
-		mods = "CMD|SHIFT",
-		action = act.DisableDefaultAssignment,
-	},
-	{
-		key = "t",
-		mods = "CMD",
+		mods = "SUPER|SHIFT",
 		action = act.SpawnTab "CurrentPaneDomain",
-	},
-	{
-		key = "t",
-		mods = primary_mod .. "|SHIFT",
-		action = act.SpawnCommandInNewTab { domain = "DefaultDomain", cwd = "~"},
-	},
-	{
-		key = ";",
-		mods = primary_mod,
-		action = act.SplitVertical { domain = "CurrentPaneDomain" },
 	},
 	{
 		key = "'",
 		mods = primary_mod,
-		action = act.SplitHorizontal { domain = "CurrentPaneDomain" },
+		action = act.SplitHorizontal {domain = "CurrentPaneDomain"},
+	},
+	{
+		key = "'",
+		mods = primary_mod  .. "|SHIFT",
+		action = act.SplitVertical {domain = "CurrentPaneDomain"},
 	},
 	{
 		key = "w",
 		mods = primary_mod,
-		action = act.CloseCurrentPane { confirm = false },
+		action = act.CloseCurrentPane {confirm = false},
 	},
 	{
-		key = "j",
-		mods = "ALT",
+		key = "[",
+		mods = primary_mod,
 		action = act.ActivateTabRelative(-1),
 	},
 	{
-		key = "l",
-		mods = "ALT",
+		key = "]",
+		mods = primary_mod,
 		action = act.ActivateTabRelative(1),
 	},
 	{
@@ -104,6 +95,26 @@ config.keys = {
 		action = act.ActivatePaneDirection "Right",
 	},
 	{
+		key = "UpArrow",
+		mods = primary_mod .. "|SHIFT",
+		action = act.AdjustPaneSize {"Up", 2},
+	},
+	{
+		key = "DownArrow",
+		mods = primary_mod .. "|SHIFT",
+		action = act.AdjustPaneSize {"Down", 2},
+	},
+	{
+		key = "LeftArrow",
+		mods = primary_mod .. "|SHIFT",
+		action = act.AdjustPaneSize {"Left", 2},
+	},
+	{
+		key = "RightArrow",
+		mods = primary_mod .. "|SHIFT",
+		action = act.AdjustPaneSize {"Right", 2},
+	},
+	{
 		key = "c",
 		mods = primary_mod .. "|SHIFT",
 		action = act.CopyTo "Clipboard",
@@ -112,6 +123,61 @@ config.keys = {
 		key = "v",
 		mods = primary_mod,
 		action = act.PasteFrom "Clipboard",
+	},
+	{
+		key = "1",
+		mods = primary_mod,
+		action = act.ActivateTab(0),
+	},
+	{
+		key = "2",
+		mods = primary_mod,
+		action = act.ActivateTab(1),
+	},
+	{
+		key = "3",
+		mods = primary_mod,
+		action = act.ActivateTab(2),
+	},
+	{
+		key = "4",
+		mods = primary_mod,
+		action = act.ActivateTab(3),
+	},
+	{
+		key = "5",
+		mods = primary_mod,
+		action = act.ActivateTab(4),
+	},
+	{
+		key = "6",
+		mods = primary_mod,
+		action = act.ActivateTab(5),
+	},
+	{
+		key = "7",
+		mods = primary_mod,
+		action = act.ActivateTab(6),
+	},
+	{
+		key = "8",
+		mods = primary_mod,
+		action = act.ActivateTab(7),
+	},
+	{
+		key = "9",
+		mods = primary_mod,
+		action = act.ActivateTab(8),
+	},
+	{
+		key = "0",
+		mods = primary_mod,
+		action = act.ActivateTab(9),
+	},
+	{
+		key = "n",
+		mods = primary_mod,
+		action = act.SpawnCommandInNewWindow {domain = "DefaultDomain", cwd = "~"},
 	},
 }
 
