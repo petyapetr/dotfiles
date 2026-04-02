@@ -1,0 +1,4 @@
+defaultAgent=pnpm
+globalAgent=npm
+runAgent=node
+catalog=true

@@ -8,6 +8,8 @@ git: $(HOME)/.gitconfig $(HOME)/.githelpers $(HOME)/.gitignore
 
 zsh: $(HOME)/.zshrc
 
+ni: $(HOME)/.nirc
+
 wezterm: $(HOME)/.wezterm.lua
 
 wezterm-wsl:
@@ -15,4 +17,4 @@ wezterm-wsl:
 	' wezterm.lua > .wezterm.lua
 	mv .wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
 
-all: zsh git wezterm
+all: zsh git wezterm ni

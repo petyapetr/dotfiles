@@ -30,3 +30,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# ni
+export NI_CONFIG_FILE=$HOME/.nirc
