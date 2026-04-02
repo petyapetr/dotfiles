@@ -23,5 +23,4 @@ alias grb="git rebase"
 
 # other
 alias pnx="pnpm dlx"
-alias whisper-cli="/Users/slava/Developer/PERSONAL/lib-source-code/whisper.cpp/build/bin/whisper-cli -m /Users/slava/Developer/PERSONAL/lib-source-code/whisper.cpp/models/ggml-base.en.bin"
-
+alias oc="opencode"

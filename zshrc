@@ -31,5 +31,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# opencode
+export PATH=/home/slava/.opencode/bin:$PATH
+
 # ni
 export NI_CONFIG_FILE=$HOME/.nirc
