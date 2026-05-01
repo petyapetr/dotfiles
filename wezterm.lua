@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
@@ -20,10 +21,19 @@ config.use_fancy_tab_bar = false
 config.audible_bell = "Disabled"
 
 wezterm.on("new-tab-button-click", function(window, pane)
-		window:perform_action(wezterm.action.SpawnCommandInNewTab({cwd = wezterm.home_dir}), pane)
-		return false
-	end
-)
+	window:perform_action(wezterm.action.SpawnCommandInNewTab({cwd = wezterm.home_dir}), pane)
+	return false
+end)
+
+wezterm.on("gui-startup", function(cmd)
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
+
+wezterm.on("spawn_maximized", function()
+  local tab, pane, window = mux.spawn_window({})
+  window:gui_window():maximize()
+end)
 
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 2
@@ -177,7 +187,7 @@ config.keys = {
 	{
 		key = "n",
 		mods = primary_mod,
-		action = act.SpawnCommandInNewWindow {domain = "DefaultDomain", cwd = "~"},
+		action = act.EmitEvent "spawn_maximized",
 	},
 }
 
