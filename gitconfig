@@ -29,9 +29,9 @@
 
 [credential "https://github.com"]
 # MacOS
-	# helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !/opt/homebrew/bin/gh auth git-credential
 # Windows
-	helper = !/usr/bin/gh auth git-credential
+	# helper = !/usr/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
 # MacOS
@@ -46,7 +46,8 @@
 	st = "status"
 	sts = "status --short"
 	c = "commit"
-	cm = "commit -m"
+	cm = "commit -am"
+	cam = "commit -m"
 	cw = "commit -m '(wip)'"
 	amend = "commit --amend --no-edit"
 	ammend = "commit --amend --no-edit"
@@ -77,3 +78,4 @@
 	fp = "fetch --prune"
 	sync = "!git fetch --all --prune && git pull --rebase"
 	yeet = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
+	i = "init"
