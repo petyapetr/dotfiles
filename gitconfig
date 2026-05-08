@@ -29,9 +29,9 @@
 
 [credential "https://github.com"]
 # MacOS
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	# helper = !/opt/homebrew/bin/gh auth git-credential
 # Windows
-	# helper = !/usr/bin/gh auth git-credential
+	helper = !/usr/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
 # MacOS
@@ -44,7 +44,7 @@
 	la = "!git l --all"
 	lr = "!git l -20"
 	st = "status"
-	sts = "status -s"
+	sts = "status --short"
 	c = "commit"
 	cm = "commit -m"
 	cw = "commit -m '(wip)'"
@@ -58,12 +58,18 @@
 	swc = "switch -c"
 	b = "branch"
 	br = "branch -r"
-	rb = "rebase --committer-date-is-author-date"
+	rb = "rebase"
 	rbi = "rebase -i"
-	s = "stash push"
-	ss = "stash push --staged"
-	ski = "stash push --keep-index"
-	spop = "stash pop"
+	rbir = "rebase -i HEAD@{10}" # r for recent, last ten commits
+	abort = "rebase --abort"
+	rs = "reset"
+	rsh = "reset --hard"
+	shls = "stash list"
+	sh = "stash push"
+	shs = "stash push --staged"
+	shu = "stash push --keep-index" # u for unstaged
+	shp = "stash pop"
+	sha = "stash apply"
 	p = "push"
 	pf = "push --force"	
 	f = "fetch"
