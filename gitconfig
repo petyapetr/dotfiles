@@ -74,3 +74,5 @@
 	pf = "push --force"	
 	f = "fetch"
 	fp = "fetch --prune"
+	sync = "!git fetch --all --prune && git pull --rebase"
+	yeet = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
