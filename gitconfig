@@ -61,8 +61,7 @@
 	bd = "branch --delete"
 	brd = "push origin --delete"
 	rb = "rebase"
-	rbi = "rebase -i"
-	rbir = "rebase -i HEAD@{10}" # r for recent, last ten commits
+	rbi = "!f() { git rebase -i HEAD~\"$1\"; }; f"
 	abort = "rebase --abort"
 	rs = "reset"
 	rsh = "reset --hard"
