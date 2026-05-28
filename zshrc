@@ -23,16 +23,14 @@ ZSH_CUSTOM=~/dotfiles/oh-my-zsh/custom
 
 source $ZSH/oh-my-zsh.sh
 
-# pnpm
-export PNPM_HOME="/Users/slava/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # opencode
 export PATH=/home/slava/.opencode/bin:$PATH
 
 # ni
 export NI_CONFIG_FILE=$HOME/.nirc
+
+# fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# mise
+eval "$(mise activate zsh)"
