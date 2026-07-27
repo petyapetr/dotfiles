@@ -35,6 +35,21 @@ wezterm.on("spawn_maximized", function()
   window:gui_window():maximize()
 end)
 
+wezterm.on("spawn_maximized_current_domain", function(window, pane)
+  local before = {}
+  for _, w in ipairs(wezterm.gui.gui_windows()) do
+    before[tostring(w)] = true
+  end
+  window:perform_action(act.SpawnCommandInNewWindow({ domain = "CurrentPaneDomain" }), pane)
+  wezterm.time.call_after(0.1, function()
+    for _, w in ipairs(wezterm.gui.gui_windows()) do
+      if not before[tostring(w)] then
+        w:maximize()
+      end
+    end
+  end)
+end)
+
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 2
 
@@ -188,6 +203,11 @@ config.keys = {
 		key = "n",
 		mods = primary_mod,
 		action = act.EmitEvent "spawn_maximized",
+	},
+	{
+		key = "n",
+		mods = primary_mod .. "|SHIFT",
+		action = act.EmitEvent "spawn_maximized_current_domain",
 	},
 }
 
