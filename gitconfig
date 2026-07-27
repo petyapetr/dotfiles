@@ -49,6 +49,7 @@
 	cm = "commit -am"
 	cam = "commit -m"
 	cw = "commit -m '(wip)'"
+	caw = "commit -m '(wip)'"
 	amend = "commit --amend --no-edit"
 	ammend = "commit --amend --no-edit"
 	a = "add"
