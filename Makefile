@@ -2,14 +2,14 @@
 DOTFILE_PATH := $(shell pwd)
 AGENTS_CONFIG := $(HOME)/.agents
 
-.PHONY: help git zsh ni wezterm skills wezterm-wsl all
+.PHONY: help git zsh ni wezterm skills wezterm-wsl herdr all
 
 $(HOME)/.%: %
 	ln -sf $(DOTFILE_PATH)/$^ $@
 
 help:
 	@echo "Available targets:"
-	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases); ni (node version and package manager)"
+	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases); ni (node version and package manager); herdr"
 	@echo "  skills        - add agent skills"
 	@echo "  wezterm-wsl   - configure wezterm on Windows from WSL"
 
@@ -21,6 +21,12 @@ ni: $(HOME)/.nirc
 
 wezterm: $(HOME)/.wezterm.lua
 
+herdr: $(HOME)/.config/herdr/config.toml herdr-plugin
+
+$(HOME)/.config/herdr/config.toml: $(DOTFILE_PATH)/herdr/config.toml
+	mkdir -p $(HOME)/.config/herdr
+	ln -sf $(DOTFILE_PATH)/herdr/config.toml $@
+
 skills:
 	mkdir -p $(AGENTS_CONFIG)
 	ln -sfn $(DOTFILE_PATH)/skills $(AGENTS_CONFIG)/skills
@@ -30,4 +36,4 @@ wezterm-wsl:
 	' wezterm.lua > .wezterm.lua
 	mv .wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
 
-all: zsh git wezterm ni skills
+all: zsh git wezterm ni skills herdr

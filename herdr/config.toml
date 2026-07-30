@@ -1,0 +1,38 @@
+[theme]
+name = "dracula"
+
+[keys]
+prefix = "alt+f"
+workspace_picker = "prefix+x"
+new_tab = "prefix+t"
+new_workspace = "prefix+n"
+previous_tab = "prefix+["
+next_tab = "prefix+]"
+focus_pane_left = ["prefix+left", "alt+left"]
+focus_pane_down = ["prefix+down", "alt+down"]
+focus_pane_up = ["prefix+up", "alt+up"]
+focus_pane_right = ["prefix+right", "alt+right"]
+split_vertical = "prefix+\""
+split_horizontal = "prefix+'"
+close_pane = "prefix+w"
+close_workspace = "prefix+shift+w"
+rename_workspace = "prefix+shift+d"
+resize_mode = "prefix+0"
+
+[[keys.command]]
+key = "prefix+r"
+type = "plugin_action"
+command = "persiyanov.reviewr.toggle"
+
+[ui]
+sidebar_max_width = 23
+pane_gaps = false
+sidebar_collapsed_mode = "hidden"
+
+agent_panel_sort = "spaces"
+
+[ui.toast]
+delivery = "herdr"
+
+[experimental]
+pane_history = false

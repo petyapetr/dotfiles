@@ -15,7 +15,7 @@ local is_windows = target:find("windows") ~= nil
 local is_macos = target:find("darwin") ~= nil
 local primary_mod = is_macos and "CMD" or "CTRL"
 
-config.enable_tab_bar = true
+config.enable_tab_bar = false
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.audible_bell = "Disabled"
