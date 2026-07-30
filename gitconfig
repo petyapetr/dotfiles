@@ -5,6 +5,7 @@
 [core]
 	editor = vim
   excludesfile = ~/.gitignore
+	pager = hunk pager
 
 [color]
   diff = auto
