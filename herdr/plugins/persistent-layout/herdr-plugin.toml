@@ -1,4 +1,4 @@
-id = "slava.persistent-layout"
+id = "petr.persistent-layout"
 name = "persistent-layout"
 version = "0.1.0"
 min_herdr_version = "0.7.5"
@@ -14,4 +14,4 @@ command = ["node", "src/picker.js"]
 id = "pick"
 title = "Persistent Layout: pick layout"
 contexts = ["workspace"]
-command = ["herdr", "plugin", "pane", "open", "--plugin", "slava.persistent-layout", "--entrypoint", "picker"]
+command = ["herdr", "plugin", "pane", "open", "--plugin", "petr.persistent-layout", "--entrypoint", "picker"]
