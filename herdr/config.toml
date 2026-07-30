@@ -24,6 +24,11 @@ key = "prefix+r"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"
 
+[[keys.command]]
+key = "prefix+l"
+type = "plugin_action"
+command = "petr.persistent-layout.pick"
+
 [ui]
 sidebar_max_width = 23
 pane_gaps = false

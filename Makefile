@@ -2,7 +2,7 @@
 DOTFILE_PATH := $(shell pwd)
 AGENTS_CONFIG := $(HOME)/.agents
 
-.PHONY: help git zsh ni wezterm skills wezterm-wsl herdr all
+.PHONY: help git zsh ni wezterm skills wezterm-wsl herdr herdr-plugin all
 
 $(HOME)/.%: %
 	ln -sf $(DOTFILE_PATH)/$^ $@
@@ -27,6 +27,11 @@ $(HOME)/.config/herdr/config.toml: $(DOTFILE_PATH)/herdr/config.toml
 	mkdir -p $(HOME)/.config/herdr
 	ln -sf $(DOTFILE_PATH)/herdr/config.toml $@
 
+herdr-plugin: $(HOME)/.config/herdr/config.toml
+	herdr plugin link $(DOTFILE_PATH)/herdr/plugins/persistent-layout
+	mkdir -p $(HOME)/.config/herdr/plugins/config/petr.persistent-layout
+	ln -sfn $(DOTFILE_PATH)/herdr/layouts $(HOME)/.config/herdr/plugins/config/petr.persistent-layout/layouts
+
 skills:
 	mkdir -p $(AGENTS_CONFIG)
 	ln -sfn $(DOTFILE_PATH)/skills $(AGENTS_CONFIG)/skills
@@ -36,4 +41,4 @@ wezterm-wsl:
 	' wezterm.lua > .wezterm.lua
 	mv .wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
 
-all: zsh git wezterm ni skills herdr
+all: zsh git wezterm ni skills herdr herdr-plugin

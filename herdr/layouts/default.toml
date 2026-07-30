@@ -1,0 +1,19 @@
+name = "current"
+description = "Tabs: terminal+git; agent; review"
+cwd = "current"
+
+[[tabs]]
+name = "terminal"
+
+  [[tabs.panes]]
+  name = "git"
+  direction = "right"
+  command = "git sss"
+
+[[tabs]]
+name = "agent"
+command = "oc"
+
+[[tabs]]
+name = "review"
+command = "hunk show"

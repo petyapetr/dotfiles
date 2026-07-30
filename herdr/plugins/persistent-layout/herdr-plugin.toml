@@ -1,0 +1,17 @@
+id = "slava.persistent-layout"
+name = "persistent-layout"
+version = "0.1.0"
+min_herdr_version = "0.7.5"
+platforms = ["macos", "linux"]
+description = "Create Herdr workspaces from declarative TOML layout files."
+
+[[panes]]
+id = "picker"
+title = "persistent-layout: pick layout"
+command = ["node", "src/picker.js"]
+
+[[actions]]
+id = "pick"
+title = "Persistent Layout: pick layout"
+contexts = ["workspace"]
+command = ["herdr", "plugin", "pane", "open", "--plugin", "slava.persistent-layout", "--entrypoint", "picker"]
