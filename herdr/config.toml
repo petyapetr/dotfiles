@@ -1,3 +1,4 @@
+onboarding = false
 [theme]
 name = "dracula"
 
@@ -28,8 +29,8 @@ command = "petr.persistent-layout.pick"
 sidebar_max_width = 23
 pane_gaps = false
 sidebar_collapsed_mode = "hidden"
-
 agent_panel_sort = "spaces"
+tab_bar_position = "bottom"
 
 [ui.toast]
 delivery = "herdr"
