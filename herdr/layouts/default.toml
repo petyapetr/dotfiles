@@ -8,11 +8,6 @@ command = "oc"
 
 [[tabs]]
 name = "git"
-command = "git sss"
-
-[[tabs]]
-name = "review"
-command = "hunk show"
 
 [[tabs]]
 name = "terminal"
