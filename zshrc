@@ -34,3 +34,6 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 # mise
 eval "$(mise activate zsh)"
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/slava/.config/vite-plus/env"
