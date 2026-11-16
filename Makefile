@@ -6,14 +6,14 @@ HERDR_APP_MODS := tab-gutter sidebar-toggle default-workspace
 MICRO_CONFIG := $(if $(XDG_CONFIG_HOME),$(XDG_CONFIG_HOME),$(HOME)/.config)/micro
 MICRO_PLUGINS := filemanager quoter fzfinder
 
-.PHONY: help git zsh ni wezterm micro micro-plugins skills wezterm-wsl herdr-app all
+.PHONY: help git zsh wezterm micro micro-plugins skills wezterm-wsl herdr-app all
 
 $(HOME)/.%: %
 	ln -sf $(DOTFILE_PATH)/$^ $@
 
 help:
 	@echo "Available targets:"
-	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases); ni (node version and package manager); micro; herdr-app"
+	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases, Vite+ environment); micro; herdr-app"
 	@echo "  micro         - link micro settings and keybindings, backing up existing files"
 	@echo "  micro-plugins - link micro config and install plugins (requires micro and network)"
 	@echo "  skills        - add agent skills"
@@ -24,8 +24,6 @@ help:
 git: $(HOME)/.gitconfig $(HOME)/.githelpers $(HOME)/.gitignore
 
 zsh: $(HOME)/.zshrc
-
-ni: $(HOME)/.nirc
 
 wezterm: $(HOME)/.wezterm.lua
 
@@ -75,4 +73,4 @@ wezterm-wsl:
 	' wezterm.lua > .wezterm.lua
 	mv .wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
 
-all: zsh git wezterm micro ni skills herdr-app
+all: zsh git wezterm micro skills herdr-app

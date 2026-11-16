@@ -26,14 +26,10 @@ source $ZSH/oh-my-zsh.sh
 # opencode
 export PATH=/home/slava/.opencode/bin:$PATH
 
-# ni
-export NI_CONFIG_FILE=$HOME/.nirc
-
-# fnm
-eval "$(fnm env --use-on-cd --shell zsh)"
-
 # mise
 eval "$(mise activate zsh)"
 
 # Vite+ bin (https://viteplus.dev)
-. "/Users/slava/.config/vite-plus/env"
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env" ]; then
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env"
+fi

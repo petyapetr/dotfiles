@@ -17,6 +17,7 @@ WIP: tools automatic download (Homebrew and WSL)
 	```bash
 	make all
 	```
+
 ### Micro
 
 Install `micro`, `fzf`, and `bat` with your system's package manager, then run:
@@ -44,3 +45,7 @@ To set up wezterminal on wsl, run this:
 ```bash
 make wezterm-wsl
 ```
+
+## Node
+
+To manage node js `vite+` should be used. Prior it used to be set up with `ni` and `fnm`.

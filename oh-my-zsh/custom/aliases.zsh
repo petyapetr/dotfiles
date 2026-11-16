@@ -1,5 +1,4 @@
 # cli utils
-alias pn=nr
 alias cat="bat --plain"
 
 # other
