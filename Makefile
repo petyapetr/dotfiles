@@ -3,15 +3,19 @@ DOTFILE_PATH := $(CURDIR)
 AGENTS_CONFIG := $(HOME)/.agents
 HERDR_APP_CONFIG := $(HOME)/.config/herdr-app
 HERDR_APP_MODS := tab-gutter sidebar-toggle
+MICRO_CONFIG := $(if $(XDG_CONFIG_HOME),$(XDG_CONFIG_HOME),$(HOME)/.config)/micro
+MICRO_PLUGINS := filemanager quoter fzfinder
 
-.PHONY: help git zsh ni wezterm skills wezterm-wsl herdr herdr-plugin herdr-app herdr-app-check all
+.PHONY: help git zsh ni wezterm micro micro-plugins skills wezterm-wsl herdr herdr-plugin herdr-app herdr-app-check all
 
 $(HOME)/.%: %
 	ln -sf $(DOTFILE_PATH)/$^ $@
 
 help:
 	@echo "Available targets:"
-	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases); ni (node version and package manager); herdr; herdr-app"
+	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases); ni (node version and package manager); micro; herdr; herdr-app"
+	@echo "  micro         - link micro settings and keybindings, backing up existing files"
+	@echo "  micro-plugins - link micro config and install plugins (requires micro and network)"
 	@echo "  skills        - add agent skills"
 	@echo "  wezterm-wsl   - configure wezterm on Windows from WSL"
 	@echo "  herdr         - link herdr config and plugin"
@@ -25,6 +29,29 @@ zsh: $(HOME)/.zshrc
 ni: $(HOME)/.nirc
 
 wezterm: $(HOME)/.wezterm.lua
+
+micro:
+	@set -eu; \
+	mkdir -p "$(MICRO_CONFIG)"; \
+	for file in settings.json bindings.json; do \
+		source="$(DOTFILE_PATH)/micro/$$file"; \
+		target="$(MICRO_CONFIG)/$$file"; \
+		if [ -L "$$target" ] && [ "$$(readlink "$$target")" = "$$source" ]; then \
+			continue; \
+		fi; \
+		if [ -d "$$target" ]; then \
+			echo "Refusing to replace directory: $$target" >&2; exit 1; \
+		fi; \
+		if [ -e "$$target" ] || [ -L "$$target" ]; then \
+			backup=$$(mktemp "$$target.backup.XXXXXX"); \
+			mv "$$target" "$$backup"; \
+			echo "Backed up $$target to $$backup"; \
+		fi; \
+		ln -s "$$source" "$$target"; \
+	done
+
+micro-plugins: micro
+	micro -config-dir "$(MICRO_CONFIG)" -plugin install $(MICRO_PLUGINS)
 
 herdr: $(HOME)/.config/herdr/config.toml herdr-plugin
 
@@ -64,4 +91,4 @@ wezterm-wsl:
 	' wezterm.lua > .wezterm.lua
 	mv .wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
 
-all: zsh git wezterm ni skills herdr herdr-app
+all: zsh git wezterm micro ni skills herdr herdr-app
