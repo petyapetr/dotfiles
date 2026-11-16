@@ -3,9 +3,8 @@
 	email = 90175094+petyapetr@users.noreply.github.com
 
 [core]
-	editor = vim
+	editor = micro
   excludesfile = ~/.gitignore
-	pager = hunk pager
 
 [color]
   diff = auto
