@@ -1,5 +1,4 @@
 .gitconfig-*
 .vscode
-herdr/layouts/work-*
 herdr-app/mods/*/gpui-kit.d.ts
 herdr-app/mods/*/jsconfig.json

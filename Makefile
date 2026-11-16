@@ -6,19 +6,18 @@ HERDR_APP_MODS := tab-gutter sidebar-toggle
 MICRO_CONFIG := $(if $(XDG_CONFIG_HOME),$(XDG_CONFIG_HOME),$(HOME)/.config)/micro
 MICRO_PLUGINS := filemanager quoter fzfinder
 
-.PHONY: help git zsh ni wezterm micro micro-plugins skills wezterm-wsl herdr herdr-plugin herdr-app all
+.PHONY: help git zsh ni wezterm micro micro-plugins skills wezterm-wsl herdr-app all
 
 $(HOME)/.%: %
 	ln -sf $(DOTFILE_PATH)/$^ $@
 
 help:
 	@echo "Available targets:"
-	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases); ni (node version and package manager); micro; herdr; herdr-app"
+	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases); ni (node version and package manager); micro; herdr-app"
 	@echo "  micro         - link micro settings and keybindings, backing up existing files"
 	@echo "  micro-plugins - link micro config and install plugins (requires micro and network)"
 	@echo "  skills        - add agent skills"
 	@echo "  wezterm-wsl   - configure wezterm on Windows from WSL"
-	@echo "  herdr         - link herdr config and plugin"
 	@echo "  herdr-app     - link layouts and mods"
 
 git: $(HOME)/.gitconfig $(HOME)/.githelpers $(HOME)/.gitignore
@@ -52,21 +51,6 @@ micro:
 micro-plugins: micro
 	micro -config-dir "$(MICRO_CONFIG)" -plugin install $(MICRO_PLUGINS)
 
-herdr: $(HOME)/.config/herdr/config.toml herdr-plugin
-
-$(HOME)/.config/herdr/config.toml: $(DOTFILE_PATH)/herdr/config.toml
-	mkdir -p $(HOME)/.config/herdr
-	ln -sf $(DOTFILE_PATH)/herdr/config.toml $@
-
-herdr-plugin: $(HOME)/.config/herdr/config.toml
-	@if command -v herdr >/dev/null 2>&1; then \
-		herdr plugin link $(DOTFILE_PATH)/herdr/plugins/persistent-layout; \
-		mkdir -p $(HOME)/.config/herdr/plugins/config/petr.persistent-layout; \
-		ln -sfn $(DOTFILE_PATH)/herdr/layouts $(HOME)/.config/herdr/plugins/config/petr.persistent-layout/layouts; \
-	else \
-		echo "herdr not found; skipping herdr plugin link"; \
-	fi
-
 herdr-app: $(HERDR_APP_CONFIG)/layouts/petr.json $(addprefix $(HERDR_APP_CONFIG)/mods/,$(HERDR_APP_MODS))
 
 $(HERDR_APP_CONFIG)/layouts/petr.json: $(DOTFILE_PATH)/herdr-app/layouts/petr.json
@@ -86,4 +70,4 @@ wezterm-wsl:
 	' wezterm.lua > .wezterm.lua
 	mv .wezterm.lua /mnt/c/Users/Slava/.wezterm.lua
 
-all: zsh git wezterm micro ni skills herdr herdr-app
+all: zsh git wezterm micro ni skills herdr-app
