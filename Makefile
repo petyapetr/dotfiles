@@ -6,7 +6,7 @@ HERDR_APP_MODS := tab-gutter sidebar-toggle
 MICRO_CONFIG := $(if $(XDG_CONFIG_HOME),$(XDG_CONFIG_HOME),$(HOME)/.config)/micro
 MICRO_PLUGINS := filemanager quoter fzfinder
 
-.PHONY: help git zsh ni wezterm micro micro-plugins skills wezterm-wsl herdr herdr-plugin herdr-app herdr-app-check all
+.PHONY: help git zsh ni wezterm micro micro-plugins skills wezterm-wsl herdr herdr-plugin herdr-app all
 
 $(HOME)/.%: %
 	ln -sf $(DOTFILE_PATH)/$^ $@
@@ -20,7 +20,6 @@ help:
 	@echo "  wezterm-wsl   - configure wezterm on Windows from WSL"
 	@echo "  herdr         - link herdr config and plugin"
 	@echo "  herdr-app     - link layouts and mods"
-	@echo "  herdr-app-check - load the linked mods once and report errors"
 
 git: $(HOME)/.gitconfig $(HOME)/.githelpers $(HOME)/.gitignore
 
@@ -77,10 +76,6 @@ $(HERDR_APP_CONFIG)/layouts/petr.json: $(DOTFILE_PATH)/herdr-app/layouts/petr.js
 $(HERDR_APP_CONFIG)/mods/%: $(DOTFILE_PATH)/herdr-app/mods/%
 	mkdir -p $(dir $@)
 	ln -sfn $< $@
-
-herdr-app-check: herdr-app
-	herdr-app check $(DOTFILE_PATH)/herdr-app/mods/tab-gutter
-	herdr-app check $(DOTFILE_PATH)/herdr-app/mods/sidebar-toggle
 
 skills:
 	mkdir -p $(AGENTS_CONFIG)
