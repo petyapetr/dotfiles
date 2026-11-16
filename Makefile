@@ -14,7 +14,7 @@ $(HOME)/.%: %
 help:
 	@echo "Available targets:"
 	@echo "  all           - set up: wezterm (theme, hotkeys); git (credentials, gitignore, aliases); zsh (aliases, Vite+ environment); micro; herdr-app"
-	@echo "  micro         - link micro settings and keybindings, backing up existing files"
+	@echo "  micro         - link micro settings and keybindings"
 	@echo "  micro-plugins - link micro config and install plugins (requires micro and network)"
 	@echo "  skills        - add agent skills"
 	@echo "  wezterm-wsl   - configure wezterm on Windows from WSL"
@@ -28,24 +28,9 @@ zsh: $(HOME)/.zshrc
 wezterm: $(HOME)/.wezterm.lua
 
 micro:
-	@set -eu; \
-	mkdir -p "$(MICRO_CONFIG)"; \
-	for file in settings.json bindings.json; do \
-		source="$(DOTFILE_PATH)/micro/$$file"; \
-		target="$(MICRO_CONFIG)/$$file"; \
-		if [ -L "$$target" ] && [ "$$(readlink "$$target")" = "$$source" ]; then \
-			continue; \
-		fi; \
-		if [ -d "$$target" ]; then \
-			echo "Refusing to replace directory: $$target" >&2; exit 1; \
-		fi; \
-		if [ -e "$$target" ] || [ -L "$$target" ]; then \
-			backup=$$(mktemp "$$target.backup.XXXXXX"); \
-			mv "$$target" "$$backup"; \
-			echo "Backed up $$target to $$backup"; \
-		fi; \
-		ln -s "$$source" "$$target"; \
-	done
+	mkdir -p "$(MICRO_CONFIG)"
+	ln -sfn "$(DOTFILE_PATH)/micro/settings.json" "$(MICRO_CONFIG)/settings.json"
+	ln -sfn "$(DOTFILE_PATH)/micro/bindings.json" "$(MICRO_CONFIG)/bindings.json"
 
 micro-plugins: micro
 	micro -config-dir "$(MICRO_CONFIG)" -plugin install $(MICRO_PLUGINS)
