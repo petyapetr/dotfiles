@@ -69,6 +69,7 @@
 	rsh = "reset --hard"
 	latest = "reset HEAD^"
 	last = "reset HEAD^"
+	undo = "reset HEAD^"
 	stls = "stash list"
 	st = "stash push"
 	sts = "stash push --staged"

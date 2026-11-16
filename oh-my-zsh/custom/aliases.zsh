@@ -4,4 +4,4 @@ alias cat="bat --plain"
 
 # other
 alias oc="opencode"
-alias cc="opencode"
+alias mi="micro"
