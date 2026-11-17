@@ -33,3 +33,6 @@ eval "$(mise activate zsh)"
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env" ]; then
   . "${XDG_CONFIG_HOME:-$HOME/.config}/vite-plus/env"
 fi
+
+# gitu tui
+export GITU_SHOW_EDITOR=micro
