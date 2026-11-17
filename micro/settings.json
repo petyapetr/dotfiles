@@ -8,9 +8,9 @@
 	"scrollbar": true,
 	"scrollspeed": 4,
 	"statusline": false,
+	"tabalways": true,
 	"tabsize": 2,
 	"fzfopen": "newtab",
-	"fzfpath": "relative",
 	"fzfarg": "--preview 'bat -fp {}'",
 	"pluginrepos": ["https://raw.githubusercontent.com/MuratovAS/micro-fzfinder/main/repo.json"]
 }

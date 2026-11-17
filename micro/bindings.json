@@ -5,5 +5,7 @@
 	"Alt-]": "NextTab",
 	"Alt-Home": "CursorStart",
 	"Alt-End": "CursorEnd",
-	"Ctrl-p": "command:fzfinder"
+	"Ctrl-p": "command:fzfinder",
+	"Ctrl-j": "ShellMode",
+	"Ctrl-b": "command:tree"
 }
