@@ -1,6 +1,11 @@
-# Personal aliases and the directory-listing shortcuts used in shell history.
-alias cat='bat --plain' oc=opencode mi=micro
-alias l='ls -lah' la='ls -lAh' lsa='ls -lah'
+# Custom
+alias lsa='ls -a'
+alias cat='bat --plain'
+
+alias oc=opencode
+alias mi=micro
+
+# zsh defaults (carry over from oh my zsh)
 
 # These commands should not correct their arguments.
 alias cp='nocorrect cp' mv='nocorrect mv' mkdir='nocorrect mkdir'
