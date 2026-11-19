@@ -2,13 +2,13 @@
 export LSCOLORS='Gxfxcxdxbxegedabagacad'
 
 # One Git status call supplies branch, changes, and upstream counts.
-# Untracked files and dirty submodule contents stay ignored.
+# Untracked files count as dirty; dirty submodule contents stay ignored.
 update_git_prompt() {
   git_prompt=' '
   local output line branch oid state='%F{green}OK' ahead=0 behind=0
   local -a fields
   output=$(GIT_OPTIONAL_LOCKS=0 command git status --porcelain=v2 --branch \
-    --untracked-files=no --ignore-submodules=dirty 2>/dev/null) || return 0
+    --untracked-files=normal --ignore-submodules=dirty 2>/dev/null) || return 0
   for line in "${(@f)output}"; do
     case "$line" in
       '# branch.head '*) branch="${line#\# branch.head }" ;;
@@ -17,7 +17,7 @@ update_git_prompt() {
         fields=(${=line})
         ahead="${fields[3]#+}"
         behind="${fields[4]#-}" ;;
-      [12u]' '*) state='%F{yellow}*' ;;
+      [12u\?]' '*) state='%F{yellow}*' ;;
     esac
   done
   [[ "$branch" == '(detached)' ]] && branch="${oid[1,7]}"
