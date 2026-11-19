@@ -23,7 +23,7 @@ help:
 
 git: $(HOME)/.gitconfig $(HOME)/.githelpers $(HOME)/.gitignore
 
-zsh: $(HOME)/.zshrc
+zsh: $(HOME)/.zshrc $(HOME)/.zshenv
 
 wezterm: $(HOME)/.wezterm.lua
 

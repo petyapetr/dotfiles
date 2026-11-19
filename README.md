@@ -49,3 +49,18 @@ make wezterm-wsl
 ## Node
 
 To manage node js `vite+` should be used. Prior it used to be set up with `ni` and `fnm`.
+
+## Zsh
+
+Oh My Zsh is not required.
+
+`make zsh` links both `.zshrc` and `.zshenv`. 
+
+`zshrc` contains native completion, shared history, editing keys, and spelling
+correction. It loads two files:
+
+- `zsh/aliases.zsh` contains personal aliases and listing shortcuts.
+- `zsh/petr-dracula.zsh` contains your two-line colored theme and its small Git
+  integration.
+
+`zshenv` makes Vite+ available to scripts too.
