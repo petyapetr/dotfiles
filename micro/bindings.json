@@ -1,11 +1,16 @@
 {
+	"Ctrl-r": "Redo",
 	"Alt-Enter": "EndOfLine,InsertNewline",
-	"Alt-O": "StartOfLine,InsertNewline,CursorUp",
+	"Alt-o": "StartOfLine,InsertNewline,CursorUp",
 	"Alt-[": "PreviousTab",
 	"Alt-]": "NextTab",
 	"Alt-Home": "CursorStart",
 	"Alt-End": "CursorEnd",
 	"Ctrl-p": "command:fzfinder",
 	"Ctrl-j": "ShellMode",
-	"Ctrl-b": "command:tree"
+	"Ctrl-b": "command:tree",
+	"Alt-d": "command:lsp goto-definition",
+	"Alt-h": "command:lsp hover",
+	"Alt-e": "command:lsp diagnostic-info",
+	"Alt-t": "command:lsp goto-typedefinition"
 }

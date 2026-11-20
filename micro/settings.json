@@ -1,16 +1,21 @@
 {
-	"autosave": 5,
 	"colorscheme": "bubblegum",
+	"pluginrepos": ["https://raw.githubusercontent.com/MuratovAS/micro-fzfinder/main/repo.json"],
+	"*.md": {
+		"softwrap": true,
+		"wordwrap": true
+	},
+	"statusformatl": "$(status.branch) | $(filename)",
+ 	"statusformatr": "lsp: $(mlsp.status) | $(percentage)%",
+	"autosave": 5,
 	"diffgutter": true,
 	"reload": "auto",
 	"savecursor": true,
 	"saveundo": true,
-	"scrollbar": true,
 	"scrollspeed": 4,
-	"statusline": false,
+	"statusline": true,
 	"tabalways": true,
 	"tabsize": 2,
 	"fzfopen": "newtab",
-	"fzfarg": "--preview 'bat -fp {}'",
-	"pluginrepos": ["https://raw.githubusercontent.com/MuratovAS/micro-fzfinder/main/repo.json"]
+	"fzfarg": "--preview 'bat -fp {}'"
 }
